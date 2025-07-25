@@ -1,52 +1,57 @@
-# VisaPlace - Immigration Law Firm Website
+# HALO - AI-Powered Immigration Assessment Platform
 
-A modern, minimalist website for VisaPlace immigration law firm built with Next.js, featuring an AI-powered chatbot for client assistance.
+A cutting-edge immigration assessment platform built with Next.js, featuring advanced AI-powered consultation flows, multi-agent systems, and voice interaction capabilities.
 
 ## 🚀 Features
 
-- **Minimalist Apple-style Design** - Clean, professional interface with subtle animations
-- **AI-Powered Chatbot** - Vercel AI SDK integration for immigration assistance
-- **Dual Country Focus** - Canadian and US immigration services
-- **Mobile-First Responsive** - Optimized for all devices
-- **Performance Optimized** - Built with Next.js 14+ and Tailwind CSS
-- **SEO Ready** - Comprehensive metadata and structured data
+- **AI-Powered Multi-Agent System** - Advanced conversational AI with specialized agents
+- **Voice Interaction** - Real-time voice chat with Hume AI integration
+- **Personalized Assessment Flows** - Dynamic questionnaire and consultation processes
+- **Multi-Country Immigration Support** - Canadian and US immigration expertise
+- **Modern React Architecture** - Built with Next.js 14+ and TypeScript
+- **Responsive Design** - Optimized for all devices with Tailwind CSS
+- **Real-time Communication** - WebSocket integration for live interactions
 
 ## 🛠 Tech Stack
 
 - **Framework**: Next.js 14+ with App Router
-- **Styling**: Tailwind CSS with custom design system
-- **UI Components**: shadcn/ui
-- **AI Integration**: Vercel AI SDK with OpenAI
-- **Icons**: Lucide React
+- **Styling**: Tailwind CSS with shadcn/ui components
+- **AI Integration**: 
+  - Vercel AI SDK with OpenAI
+  - Hume AI for voice interactions
+  - Multi-agent orchestration
+- **Voice Processing**: Hume Voice SDK
+- **State Management**: React hooks and context
 - **TypeScript**: Full type safety
-- **Font**: Inter (Google Fonts)
+- **Icons**: Lucide React
 
 ## 🎨 Design System
 
 ### Colors
-- **Primary Blue**: `#1e3a8a` (Trust, professionalism)
-- **Accent Red**: `#dc2626` (Canada flag accent)
-- **Neutral Grays**: Clean whites and grays for backgrounds
-- **System Colors**: Success, warning, and error states
+- **Primary**: Modern blue palette for trust and professionalism
+- **Accent**: Strategic use of red for Canadian flag elements
+- **Neutral**: Clean whites and grays for optimal readability
+- **System**: Consistent success, warning, and error states
 
 ### Typography
-- **Font Family**: Inter
+- **Font Family**: Inter (Google Fonts)
 - **Responsive Scale**: 14px to 48px
 - **Font Weights**: 400 (regular) to 700 (bold)
 
 ## 🚀 Getting Started
 
 ### Prerequisites
-- Node.js 18+ 
+- Node.js 18+
 - npm or yarn
 - OpenAI API key (for AI chatbot)
+- Hume AI credentials (for voice features)
 
 ### Installation
 
 1. **Clone the repository**
    ```bash
-   git clone <repository-url>
-   cd visaplace-redesign
+   git clone https://github.com/ArkMaster123/HALO.git
+   cd HALO
    ```
 
 2. **Install dependencies**
@@ -58,6 +63,7 @@ A modern, minimalist website for VisaPlace immigration law firm built with Next.
    Create a `.env.local` file in the root directory:
    ```env
    OPENAI_API_KEY=your_openai_api_key_here
+   HUME_API_KEY=your_hume_api_key_here
    NEXT_PUBLIC_APP_URL=http://localhost:3000
    ```
 
@@ -72,70 +78,82 @@ A modern, minimalist website for VisaPlace immigration law firm built with Next.
 ## 📁 Project Structure
 
 ```
-visaplace-redesign/
+HALO/
 ├── src/
-│   ├── app/                 # Next.js App Router
-│   │   ├── api/chat/       # AI chatbot API route
-│   │   ├── globals.css     # Global styles
-│   │   ├── layout.tsx      # Root layout
-│   │   └── page.tsx        # Homepage
-│   ├── components/         # React components
-│   │   ├── ui/            # shadcn/ui components
-│   │   ├── header.tsx     # Navigation header
-│   │   └── ai-chatbot.tsx # AI chatbot component
-│   └── lib/
-│       └── utils.ts       # Utility functions
-├── tailwind.config.ts     # Tailwind configuration
-└── package.json
+│   ├── app/                    # Next.js App Router
+│   │   ├── api/               # API routes
+│   │   │   ├── assessment/    # Assessment endpoints
+│   │   │   ├── chat/          # AI chat endpoints
+│   │   │   ├── multi-agent/   # Multi-agent system
+│   │   │   └── hume-tools/    # Hume AI integration
+│   │   ├── assessment/        # Assessment pages
+│   │   ├── multi-agent/       # Multi-agent interface
+│   │   └── how-it-works/      # Documentation pages
+│   ├── components/            # React components
+│   │   ├── ui/               # shadcn/ui components
+│   │   ├── multi-agent/      # Multi-agent components
+│   │   └── assessment/       # Assessment components
+│   ├── lib/                  # Utility libraries
+│   └── utils/                # Helper functions
+├── public/                   # Static assets
+├── scripts/                  # Build and setup scripts
+└── docs/                     # Documentation
 ```
 
-## 🤖 AI Chatbot Features
+## 🤖 AI Features
 
-The AI chatbot is powered by Vercel AI SDK and includes:
+### Multi-Agent System
+- **Orchestrator Agent**: Coordinates conversation flow
+- **Narrative Agent**: Manages storytelling and engagement
+- **Protocol Agent**: Handles structured processes
+- **Questionnaire Agent**: Manages assessment flows
+- **Simulation Agent**: Provides scenario-based guidance
 
-- **Immigration Expertise**: Trained on Canadian and US immigration processes
-- **Lead Qualification**: Intelligent questioning to qualify potential clients
-- **Minimalist UI**: Apple-inspired chat interface
-- **Real-time Streaming**: Instant responses with typing indicators
-- **Conversation Memory**: Context-aware conversations
-- **Professional Handoff**: Seamless transition to human consultants
+### Voice Integration
+- **Real-time Voice Chat**: Live voice conversations
+- **Emotion Recognition**: Advanced sentiment analysis
+- **Voice Synthesis**: Natural speech generation
+- **Multi-modal Interaction**: Seamless text and voice
 
-### Chatbot Capabilities
-- Express Entry guidance
-- Work permit information
-- Green card processes
-- Family sponsorship advice
-- Study permit assistance
-- Business immigration options
+### Assessment Capabilities
+- **Dynamic Questionnaires**: Adaptive assessment flows
+- **Progress Tracking**: Real-time consultation progress
+- **Expertise Capture**: Intelligent knowledge extraction
+- **Personalized Recommendations**: AI-driven guidance
 
 ## 🎯 Key Pages & Components
 
 ### Homepage
-- Hero section with country selector (🇨🇦/🇺🇸)
-- Trust indicators and statistics
-- Popular immigration pathways
-- Why choose VisaPlace section
-- Call-to-action sections
+- Hero section with immigration pathways
+- Multi-agent system overview
+- Voice interaction demos
+- Assessment flow preview
 
-### Navigation
-- Sticky header with glass effect
-- Dropdown menus for services
-- Mobile-responsive hamburger menu
-- Quick access to assessments and consultations
+### Multi-Agent Interface
+- Real-time agent conversations
+- Voice interaction controls
+- Emotion and expression tracking
+- Dynamic response generation
 
-### AI Chatbot
-- Floating chat button (bottom-right)
-- Expandable chat window
-- Pre-defined quick questions
-- Professional disclaimer and consultation booking
+### Assessment Platform
+- Interactive questionnaires
+- Progress indicators
+- Expert consultation booking
+- Personalized recommendations
+
+### Documentation
+- How-it-works guides
+- Setup instructions
+- API documentation
+- Integration examples
 
 ## 🎨 Design Principles
 
-1. **Minimalism**: Clean, uncluttered interface
-2. **Apple-inspired**: Subtle shadows, rounded corners, smooth animations
+1. **User-Centric**: Intuitive, accessible interface design
+2. **Performance-First**: Optimized for speed and responsiveness
 3. **Accessibility**: WCAG 2.1 AA compliance
-4. **Performance**: Optimized loading and Core Web Vitals
-5. **Mobile-first**: Responsive design starting from mobile
+4. **Mobile-First**: Responsive design starting from mobile
+5. **Modern Aesthetics**: Clean, professional appearance
 
 ## 🚀 Deployment
 
@@ -182,7 +200,8 @@ npm run type-check
 
 | Variable | Description | Required |
 |----------|-------------|----------|
-| `OPENAI_API_KEY` | OpenAI API key for chatbot | Yes |
+| `OPENAI_API_KEY` | OpenAI API key for AI chatbot | Yes |
+| `HUME_API_KEY` | Hume AI key for voice features | Yes |
 | `NEXT_PUBLIC_APP_URL` | Application URL | No |
 
 ## 🤝 Contributing
@@ -195,7 +214,7 @@ npm run type-check
 
 ## 📄 License
 
-This project is proprietary and confidential. All rights reserved by VisaPlace.
+This project is proprietary and confidential. All rights reserved.
 
 ## 📞 Support
 
@@ -203,4 +222,4 @@ For technical support or questions about this project, please contact the develo
 
 ---
 
-**Built with ❤️ for VisaPlace Immigration Law Firm**
+**Built with ❤️ for HALO Immigration Assessment Platform**
