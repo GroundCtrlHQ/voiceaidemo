@@ -19,7 +19,7 @@ const AssessmentResponseSchema = z.object({
   })).describe('Interactive options/buttons for the user'),
   nextAction: z.enum(['continue', 'complete', 'redirect']).describe('What should happen next'),
   recommendations: z.array(z.string()).optional().describe('Specific recommendations based on user responses'),
-  eligibilityScore: z.number().min(0).max(100).optional().describe('Eligibility score if applicable')
+  eligibilityScore: z.number().min(0).max(100).nullable().optional().describe('Eligibility score if applicable (null if not needed)')
 });
 
 // Function to get the system prompt with custom prompts support
@@ -50,7 +50,7 @@ CONVERSATIONAL MODE: CRITICAL - Do NOT provide any button options (return empty 
 - Start at 0% progress
 - Increase progress by 20-25% for each meaningful story/interaction shared
 - Aim for 100% when 3-5 complete stories are captured
-- Do not include eligibilityScore unless specifically needed`;
+- Set eligibilityScore to null unless you have enough information to calculate a meaningful score (0-100)`;
 
   return basePrompt + interactionInstructions + progressInstructions;
 };
