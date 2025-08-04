@@ -62,5 +62,5 @@ export default async function VoiceAIDemo2Page() {
     );
   }
 
-  return <MultiAgentPageClient accessToken={accessToken} configId="NEXT_PUBLIC_HUME_CONFIG_ID_2" />;
+  return <MultiAgentPageClient accessToken={accessToken} configId={process.env.NEXT_PUBLIC_HUME_CONFIG_ID_2} />;
 } 

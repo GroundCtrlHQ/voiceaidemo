@@ -33,15 +33,8 @@ export default function HumeVoiceChat({
   const timeout = useRef<number | null>(null);
   const ref = useRef<ComponentRef<typeof Messages> | null>(null);
 
-  // Resolve the configId to the actual environment variable value
-  const getConfigIdValue = (configIdName: string) => {
-    if (configIdName.startsWith('NEXT_PUBLIC_')) {
-      return process.env[configIdName] || configIdName;
-    }
-    return configIdName;
-  };
-
-  const finalConfigId = getConfigIdValue(configId);
+  // Use the provided configId or fall back to environment variable
+  const finalConfigId = configId || process.env.NEXT_PUBLIC_HUME_CONFIG_ID || "5203e88d-cf3e-44ce-9ac7-aff76715e23d";
 
   console.log('HumeVoiceChat rendered with accessToken:', !!accessToken, 'configId:', finalConfigId);
 
