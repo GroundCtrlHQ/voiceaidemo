@@ -1,5 +1,5 @@
 import { getHumeAccessToken } from '@/utils/getHumeAccessToken';
-import MultiAgentPageClient from '../voiceaidemo/multi-agent-client';
+import MultiAgentPageClient from './multi-agent-client';
 import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
 import { Button } from '@/components/ui/button';
 import { AlertCircle, Settings, RefreshCw } from 'lucide-react';
