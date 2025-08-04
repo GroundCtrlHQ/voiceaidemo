@@ -17,6 +17,7 @@ import MicFFT from './mic-fft';
 
 interface HumeVoiceChatProps {
   accessToken: string;
+  configId?: string;
   activeAgent: string;
   onMessageReceived: (message: string) => void;
   onAgentResponse: (response: string) => void;
@@ -24,6 +25,7 @@ interface HumeVoiceChatProps {
 
 export default function HumeVoiceChat({
   accessToken,
+  configId = "NEXT_PUBLIC_HUME_CONFIG_ID",
   activeAgent,
   onMessageReceived,
   onAgentResponse
@@ -31,10 +33,10 @@ export default function HumeVoiceChat({
   const timeout = useRef<number | null>(null);
   const ref = useRef<ComponentRef<typeof Messages> | null>(null);
 
-  // Use the Hume AI config ID from environment variable
-  const configId = process.env.NEXT_PUBLIC_HUME_CONFIG_ID || "5203e88d-cf3e-44ce-9ac7-aff76715e23d";
+  // Use the provided configId or fall back to environment variable
+  const finalConfigId = configId || process.env.NEXT_PUBLIC_HUME_CONFIG_ID || "5203e88d-cf3e-44ce-9ac7-aff76715e23d";
 
-  console.log('HumeVoiceChat rendered with accessToken:', !!accessToken, 'configId:', configId);
+  console.log('HumeVoiceChat rendered with accessToken:', !!accessToken, 'configId:', finalConfigId);
 
   return (
     <div className="relative w-full h-full">
@@ -67,7 +69,7 @@ export default function HumeVoiceChat({
           onAgentResponse={onAgentResponse}
         />
         <Controls />
-        <StartCall configId={configId} accessToken={accessToken} />
+        <StartCall configId={finalConfigId} accessToken={accessToken} />
       </VoiceProvider>
     </div>
   );
