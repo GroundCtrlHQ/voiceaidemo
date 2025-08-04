@@ -1,181 +1,110 @@
-# HALO - AI-Powered Immigration Assessment Platform
+# VoiceAI Demo 1 - Real-time Voice Chat Interface
 
-A cutting-edge immigration assessment platform built with Next.js, featuring advanced AI-powered consultation flows, multi-agent systems, and voice interaction capabilities.
+A production-ready Next.js demo showcasing advanced voice interaction capabilities using Hume AI. This demo provides a clean, professional interface for real-time voice conversations with emotion detection and modern UI design.
 
-## 🚀 Features
+## 🎯 What This Demo Does
 
-- **AI-Powered Multi-Agent System** - Advanced conversational AI with specialized agents
-- **Voice Interaction** - Real-time voice chat with Hume AI integration
-- **Personalized Assessment Flows** - Dynamic questionnaire and consultation processes
-- **Multi-Country Immigration Support** - Canadian and US immigration expertise
-- **Modern React Architecture** - Built with Next.js 14+ and TypeScript
-- **Responsive Design** - Optimized for all devices with Tailwind CSS
-- **Real-time Communication** - WebSocket integration for live interactions
+**VoiceAI Demo 1** is a streamlined voice chat interface that demonstrates:
+
+- **🎤 Real-time Voice Conversations** - Live voice interaction with AI using Hume AI's voice SDK
+- **😊 Emotion Detection** - Visual display of emotional expressions during conversations
+- **🎨 Modern UI** - Clean, professional interface with GroundCtrl-inspired dark theme
+- **📱 Responsive Design** - Works perfectly on desktop, tablet, and mobile devices
+- **⚡ Fast Performance** - Optimized for speed with Next.js 14+ and TypeScript
+
+## 🚀 Key Features
+
+### Voice Interaction
+- **Live microphone controls** with mute/unmute functionality
+- **Real-time audio visualization** (FFT display)
+- **Voice status indicators** showing connection state
+- **Conversation history** with message timestamps
+
+### Emotion Detection
+- **Visual expression tracking** during voice conversations
+- **Emotion intensity display** with animated progress bars
+- **Real-time sentiment analysis** powered by Hume AI
+
+### Professional UI
+- **Dark theme** with orange/reddish accents
+- **Clean, minimal interface** focused on voice interaction
+- **Responsive design** that works on all screen sizes
+- **Smooth animations** and modern interactions
 
 ## 🛠 Tech Stack
 
 - **Framework**: Next.js 14+ with App Router
-- **Styling**: Tailwind CSS with shadcn/ui components
-- **AI Integration**: 
-  - Vercel AI SDK with OpenAI
-  - Hume AI for voice interactions
-  - Multi-agent orchestration
-- **Voice Processing**: Hume Voice SDK
-- **State Management**: React hooks and context
-- **TypeScript**: Full type safety
+- **Voice AI**: Hume AI Voice SDK
+- **Styling**: Tailwind CSS with custom design system
+- **Animations**: Motion (Framer Motion)
 - **Icons**: Lucide React
-
-## 🎨 Design System
-
-### Colors
-- **Primary**: Modern blue palette for trust and professionalism
-- **Accent**: Strategic use of red for Canadian flag elements
-- **Neutral**: Clean whites and grays for optimal readability
-- **System**: Consistent success, warning, and error states
-
-### Typography
-- **Font Family**: Inter (Google Fonts)
-- **Responsive Scale**: 14px to 48px
-- **Font Weights**: 400 (regular) to 700 (bold)
+- **TypeScript**: Full type safety
 
 ## 🚀 Getting Started
 
 ### Prerequisites
 - Node.js 18+
 - npm or yarn
-- OpenAI API key (for AI chatbot)
 - Hume AI credentials (for voice features)
 
 ### Installation
 
-1. **Clone the repository**
-   ```bash
-   git clone https://github.com/ArkMaster123/HALO.git
-   cd HALO
-   ```
-
-2. **Install dependencies**
+1. **Install dependencies**
    ```bash
    npm install
    ```
 
-3. **Set up environment variables**
-   Create a `.env.local` file in the root directory:
-   ```env
-   OPENAI_API_KEY=your_openai_api_key_here
-   HUME_API_KEY=your_hume_api_key_here
-   NEXT_PUBLIC_APP_URL=http://localhost:3000
+2. **Set up environment variables**
+   ```bash
+   cp .env.example .env.local
+   ```
+   
+   Then add your Hume AI credentials to `.env.local`:
+   ```
+   NEXT_PUBLIC_HUME_API_KEY=your_hume_api_key_here
+   NEXT_PUBLIC_HUME_SECRET_KEY=your_hume_secret_key_here
+   NEXT_PUBLIC_HUME_CONFIG_ID=your_hume_config_id_here
    ```
 
-4. **Run the development server**
+3. **Start the development server**
    ```bash
    npm run dev
    ```
 
-5. **Open your browser**
-   Navigate to [http://localhost:3000](http://localhost:3000)
+4. **Open your browser**
+   Navigate to http://localhost:3000 (or 3001 if 3000 is in use)
 
 ## 📁 Project Structure
 
 ```
-HALO/
-├── src/
-│   ├── app/                    # Next.js App Router
-│   │   ├── api/               # API routes
-│   │   │   ├── assessment/    # Assessment endpoints
-│   │   │   ├── chat/          # AI chat endpoints
-│   │   │   ├── multi-agent/   # Multi-agent system
-│   │   │   └── hume-tools/    # Hume AI integration
-│   │   ├── assessment/        # Assessment pages
-│   │   ├── multi-agent/       # Multi-agent interface
-│   │   └── how-it-works/      # Documentation pages
-│   ├── components/            # React components
-│   │   ├── ui/               # shadcn/ui components
-│   │   ├── multi-agent/      # Multi-agent components
-│   │   └── assessment/       # Assessment components
-│   ├── lib/                  # Utility libraries
-│   └── utils/                # Helper functions
-├── public/                   # Static assets
-├── scripts/                  # Build and setup scripts
-└── docs/                     # Documentation
+voiceaidemo1/
+├── src/app/
+│   ├── page.tsx (redirects to voice chat)
+│   ├── multi-agent/ (voice chat interface)
+│   │   ├── page.tsx (main voice interface)
+│   │   └── multi-agent-client.tsx (client logic)
+│   └── layout.tsx (with theme provider)
+├── src/components/multi-agent/
+│   ├── hume-voice-chat.tsx (voice interface)
+│   ├── expressions.tsx (emotion display)
+│   ├── mic-fft.tsx (audio visualization)
+│   └── [other voice components]
+├── .env.example (environment variables template)
+└── [all styling and utilities]
 ```
 
-## 🤖 AI Features
+## 🎨 Design System
 
-### Multi-Agent System
-- **Orchestrator Agent**: Coordinates conversation flow
-- **Narrative Agent**: Manages storytelling and engagement
-- **Protocol Agent**: Handles structured processes
-- **Questionnaire Agent**: Manages assessment flows
-- **Simulation Agent**: Provides scenario-based guidance
+### Colors
+- **Primary**: Orange (#f97316) for accents and highlights
+- **Background**: Deep black (#0a0a0a) for professional look
+- **Text**: Pure white (#ffffff) for maximum contrast
+- **Secondary**: Gray tones for subtle elements
 
-### Voice Integration
-- **Real-time Voice Chat**: Live voice conversations
-- **Emotion Recognition**: Advanced sentiment analysis
-- **Voice Synthesis**: Natural speech generation
-- **Multi-modal Interaction**: Seamless text and voice
-
-### Assessment Capabilities
-- **Dynamic Questionnaires**: Adaptive assessment flows
-- **Progress Tracking**: Real-time consultation progress
-- **Expertise Capture**: Intelligent knowledge extraction
-- **Personalized Recommendations**: AI-driven guidance
-
-## 🎯 Key Pages & Components
-
-### Homepage
-- Hero section with immigration pathways
-- Multi-agent system overview
-- Voice interaction demos
-- Assessment flow preview
-
-### Multi-Agent Interface
-- Real-time agent conversations
-- Voice interaction controls
-- Emotion and expression tracking
-- Dynamic response generation
-
-### Assessment Platform
-- Interactive questionnaires
-- Progress indicators
-- Expert consultation booking
-- Personalized recommendations
-
-### Documentation
-- How-it-works guides
-- Setup instructions
-- API documentation
-- Integration examples
-
-## 🎨 Design Principles
-
-1. **User-Centric**: Intuitive, accessible interface design
-2. **Performance-First**: Optimized for speed and responsiveness
-3. **Accessibility**: WCAG 2.1 AA compliance
-4. **Mobile-First**: Responsive design starting from mobile
-5. **Modern Aesthetics**: Clean, professional appearance
-
-## 🚀 Deployment
-
-### Vercel (Recommended)
-1. Connect your GitHub repository to Vercel
-2. Add environment variables in Vercel dashboard
-3. Deploy automatically on push to main branch
-
-### Other Platforms
-The project can be deployed to any platform supporting Next.js:
-- Netlify
-- AWS Amplify
-- Railway
-- DigitalOcean App Platform
-
-## 📊 Performance Targets
-
-- **Lighthouse Score**: 90+ across all categories
-- **Core Web Vitals**:
-  - LCP: < 2.5 seconds
-  - FID: < 100 milliseconds
-  - CLS: < 0.1
+### Typography
+- **Font Family**: Inter (Google Fonts)
+- **Responsive Scale**: 14px to 48px
+- **Font Weights**: 400 (regular) to 700 (bold)
 
 ## 🔧 Development Commands
 
@@ -200,26 +129,49 @@ npm run type-check
 
 | Variable | Description | Required |
 |----------|-------------|----------|
-| `OPENAI_API_KEY` | OpenAI API key for AI chatbot | Yes |
-| `HUME_API_KEY` | Hume AI key for voice features | Yes |
-| `NEXT_PUBLIC_APP_URL` | Application URL | No |
+| `NEXT_PUBLIC_HUME_API_KEY` | Hume AI API key | Yes |
+| `NEXT_PUBLIC_HUME_SECRET_KEY` | Hume AI secret key | Yes |
+| `NEXT_PUBLIC_HUME_CONFIG_ID` | Hume AI project config ID | Yes |
 
-## 🤝 Contributing
+## 🚀 Deployment
 
-1. Fork the repository
-2. Create a feature branch (`git checkout -b feature/amazing-feature`)
-3. Commit your changes (`git commit -m 'Add amazing feature'`)
-4. Push to the branch (`git push origin feature/amazing-feature`)
-5. Open a Pull Request
+### Vercel (Recommended)
+1. Connect your GitHub repository to Vercel
+2. Add environment variables in Vercel dashboard
+3. Deploy automatically on push to main branch
+
+### Other Platforms
+The project can be deployed to any platform supporting Next.js:
+- Netlify
+- AWS Amplify
+- Railway
+- DigitalOcean App Platform
+
+## 📊 Performance
+
+- **Lighthouse Score**: 90+ across all categories
+- **Core Web Vitals**:
+  - LCP: < 2.5 seconds
+  - FID: < 100 milliseconds
+  - CLS: < 0.1
+
+## 🤝 Need a Custom AI Solution?
+
+This demo showcases just one example of what's possible with modern AI technology. If you need a custom AI solution built for your business, **GroundCtrl** can help!
+
+### 🎯 GroundCtrl Services
+- **Custom AI Development** - Tailored AI solutions for your specific needs
+- **Voice AI Integration** - Advanced voice interfaces like this demo
+- **AI Workforce Solutions** - AI that amplifies human potential
+- **Enterprise AI Consulting** - Strategic AI implementation
+
+### 📞 Book a Meeting
+Ready to build your own AI solution? [Book a meeting with GroundCtrl](https://groundctrl.space/) to discuss your project requirements and get started on your custom AI development journey.
 
 ## 📄 License
 
 This project is proprietary and confidential. All rights reserved.
 
-## 📞 Support
-
-For technical support or questions about this project, please contact the development team.
-
 ---
 
-**Built with ❤️ for HALO Immigration Assessment Platform**
+**Built with ❤️ by GroundCtrl - Mission Control For Your AI Transformation**

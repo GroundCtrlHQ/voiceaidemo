@@ -11,28 +11,28 @@ const inter = Inter({
 });
 
 export const metadata: Metadata = {
-  title: "HALO – Expertise Capture App",
-  description: "Organize and capture human expertise for the AI age. HALO guides users through expert knowledge elicitation using four advanced methods.",
-  keywords: "expertise capture, knowledge elicitation, AI, narrative storytelling, protocol analysis, targeted questioning, simulation, HALO",
-  authors: [{ name: "HALO by Mega Lab" }],
-  creator: "HALO",
-  publisher: "HALO",
+  title: "VoiceAI Demo 1 - Real-time Voice Chat Interface",
+  description: "A production-ready Next.js demo showcasing advanced voice interaction capabilities using Hume AI. Features real-time voice conversations, emotion detection, and modern UI design.",
+  keywords: "voice AI, Hume AI, voice chat, emotion detection, Next.js, AI demo, voice interface",
+  authors: [{ name: "GroundCtrl" }],
+  creator: "GroundCtrl",
+  publisher: "GroundCtrl",
   formatDetection: {
     email: false,
     address: false,
     telephone: false,
   },
   openGraph: {
-    title: "HALO – Expertise Capture App",
-    description: "Organize and capture human expertise for the AI age. HALO guides users through expert knowledge elicitation using four advanced methods.",
-    siteName: 'HALO',
+    title: "VoiceAI Demo 1 - Real-time Voice Chat Interface",
+    description: "A production-ready Next.js demo showcasing advanced voice interaction capabilities using Hume AI. Features real-time voice conversations, emotion detection, and modern UI design.",
+    siteName: 'VoiceAI Demo 1',
     locale: 'en_US',
     type: 'website',
   },
   twitter: {
     card: 'summary_large_image',
-    title: "HALO – Expertise Capture App",
-    description: "Organize and capture human expertise for the AI age. HALO guides users through expert knowledge elicitation using four advanced methods.",
+    title: "VoiceAI Demo 1 - Real-time Voice Chat Interface",
+    description: "A production-ready Next.js demo showcasing advanced voice interaction capabilities using Hume AI. Features real-time voice conversations, emotion detection, and modern UI design.",
   },
   robots: {
     index: true,

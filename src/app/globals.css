@@ -13,10 +13,10 @@
     --card-foreground: 0 0% 3.9%; /* Dark text */
     --popover: 0 0% 100%;
     --popover-foreground: 0 0% 3.9%;
-    --primary: 330 81% 60%; /* Vibrant pink */
-    --primary-foreground: 0 0% 98%; /* White text on pink */
-    --secondary: 267 84% 81%; /* Purple */
-    --secondary-foreground: 0 0% 9%; /* Dark text on purple */
+    --primary: 25 95% 53%; /* Orange accent */
+    --primary-foreground: 0 0% 98%; /* White text on orange */
+    --secondary: 0 0% 96.1%; /* Light gray */
+    --secondary-foreground: 0 0% 9%; /* Dark text on gray */
     --muted: 0 0% 96.1%; /* Light gray */
     --muted-foreground: 0 0% 45.1%; /* Medium gray text */
     --accent: 25 95% 53%; /* Orange accent */
@@ -25,7 +25,7 @@
     --destructive-foreground: 0 0% 98%;
     --border: 0 0% 89.8%; /* Light gray borders */
     --input: 0 0% 89.8%;
-    --ring: 330 81% 60%; /* Pink ring */
+    --ring: 25 95% 53%; /* Orange ring */
     --chart-1: 12 76% 61%;
     --chart-2: 173 58% 39%;
     --chart-3: 197 37% 24%;
@@ -35,17 +35,17 @@
   }
 
   .dark {
-    /* Dark theme - Deep black with vibrant pink/purple gradients */
+    /* Dark theme - Deep black with orange/reddish accents (GroundCtrl style) */
     --background: 0 0% 3.9%; /* Deep dark background */
     --foreground: 0 0% 98%; /* Pure white text */
     --card: 0 0% 7%; /* Dark cards */
     --card-foreground: 0 0% 98%; /* White text */
     --popover: 0 0% 3.9%;
     --popover-foreground: 0 0% 98%;
-    --primary: 330 81% 60%; /* Bright pink */
+    --primary: 25 95% 53%; /* Orange accent */
     --primary-foreground: 0 0% 9%; /* Dark text */
-    --secondary: 267 84% 81%; /* Bright purple */
-    --secondary-foreground: 0 0% 9%; /* Dark text */
+    --secondary: 0 0% 14.9%; /* Dark gray */
+    --secondary-foreground: 0 0% 98%; /* White text */
     --muted: 0 0% 14.9%; /* Dark gray */
     --muted-foreground: 0 0% 63.9%; /* Light gray text */
     --accent: 25 95% 53%; /* Orange accent */
@@ -54,7 +54,7 @@
     --destructive-foreground: 0 0% 98%;
     --border: 0 0% 14.9%; /* Dark gray borders */
     --input: 0 0% 14.9%;
-    --ring: 330 81% 60%; /* Pink ring */
+    --ring: 25 95% 53%; /* Orange ring */
     --chart-1: 220 70% 50%;
     --chart-2: 160 60% 45%;
     --chart-3: 30 80% 55%;
@@ -92,12 +92,12 @@
   }
 
   ::-webkit-scrollbar-thumb {
-    background: linear-gradient(to bottom, hsl(var(--primary)), hsl(var(--secondary)));
+    background: hsl(var(--primary));
     border-radius: 9999px;
   }
 
   ::-webkit-scrollbar-thumb:hover {
-    background: linear-gradient(to bottom, hsl(var(--primary) / 0.8), hsl(var(--secondary) / 0.8));
+    background: hsl(var(--primary) / 0.8);
   }
 
   /* Selection styling */
@@ -179,31 +179,19 @@
 
   /* Text styles */
   .text-gradient-primary {
-    background: linear-gradient(135deg, #ec4899, #db2777);
-    -webkit-background-clip: text;
-    background-clip: text;
-    color: transparent;
+    @apply bg-gradient-to-r from-orange-500 to-orange-600 bg-clip-text text-transparent;
   }
 
   .text-gradient-secondary {
-    background: linear-gradient(135deg, #a855f7, #9333ea);
-    -webkit-background-clip: text;
-    background-clip: text;
-    color: transparent;
+    @apply bg-gradient-to-r from-gray-400 to-gray-500 bg-clip-text text-transparent;
   }
 
   .text-gradient-accent {
-    background: linear-gradient(135deg, #f97316, #ea580c);
-    -webkit-background-clip: text;
-    background-clip: text;
-    color: transparent;
+    @apply bg-gradient-to-r from-orange-500 to-red-500 bg-clip-text text-transparent;
   }
 
   .text-gradient-multi {
-    background: linear-gradient(135deg, #ec4899, #a855f7, #f97316);
-    -webkit-background-clip: text;
-    background-clip: text;
-    color: transparent;
+    @apply bg-gradient-to-r from-orange-500 via-red-500 to-orange-600 bg-clip-text text-transparent;
   }
 
   /* Container styles */

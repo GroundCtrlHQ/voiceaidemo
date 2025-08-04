@@ -1,29 +1,15 @@
 "use client";
 
-import { useState, useEffect } from 'react';
+import { useState } from 'react';
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Button } from '@/components/ui/button';
 import { Badge } from '@/components/ui/badge';
-import { ArrowLeft, Settings, CheckCircle, Brain, Download, Zap } from 'lucide-react';
+import { ArrowLeft, CheckCircle } from 'lucide-react';
 import HumeVoiceChat from '@/components/multi-agent/hume-voice-chat';
-import HALOSettings from '@/components/multi-agent/halo-settings';
-import HALOReview from '@/components/multi-agent/halo-review';
 import Link from 'next/link';
-import {
-  Popover,
-  PopoverContent,
-  PopoverTrigger,
-} from "@/components/ui/popover";
 
 interface MultiAgentPageClientProps {
   accessToken: string;
-}
-
-interface HALOSettings {
-  enabled: boolean;
-  customPrompt: string;
-  autoReview: boolean;
-  showEmotions: boolean;
 }
 
 interface ConversationMessage {
@@ -37,12 +23,6 @@ export default function MultiAgentPageClient({ accessToken }: MultiAgentPageClie
   const [activeAgent, setActiveAgent] = useState('orchestrator');
   const [capturedExpertise, setCapturedExpertise] = useState<any[]>([]);
   const [conversation, setConversation] = useState<ConversationMessage[]>([]);
-  const [haloSettings, setHaloSettings] = useState<HALOSettings>({
-    enabled: true,
-    customPrompt: '',
-    autoReview: false,
-    showEmotions: true
-  });
 
   const handleMessageReceived = (message: string) => {
     console.log('Message received from Hume:', message);
@@ -81,28 +61,11 @@ export default function MultiAgentPageClient({ accessToken }: MultiAgentPageClie
       timestamp: new Date().toISOString()
     };
     setConversation(prev => [...prev, newMessage]);
-
-    // Auto-trigger HALO review if enabled
-    if (haloSettings.enabled && haloSettings.autoReview && conversation.length >= 4) {
-      // Trigger auto-review after a short delay
-      setTimeout(() => {
-        console.log('Auto-triggering HALO review...');
-        // This will be handled by the HALOReview component
-      }, 2000);
-    }
-  };
-
-  const handleSettingsChange = (newSettings: HALOSettings) => {
-    setHaloSettings(newSettings);
-  };
-
-  const handleExportConversation = () => {
-    console.log('Conversation exported successfully');
   };
 
   return (
     <div className="min-h-screen bg-background">
-      {/* Header with HALO Controls */}
+      {/* Header with Voice Controls */}
       <header className="sticky top-0 z-50 w-full border-b border-border bg-background/80 backdrop-blur-xl supports-[backdrop-filter]:bg-background/60">
         <div className="container-padding flex h-16 items-center justify-between">
           <div className="flex items-center gap-4">
@@ -125,55 +88,6 @@ export default function MultiAgentPageClient({ accessToken }: MultiAgentPageClie
                 {conversation.length} messages
               </Badge>
             )}
-            
-            {/* HALO Review Popover */}
-            <Popover>
-              <PopoverTrigger asChild>
-                <Button 
-                  variant="outline" 
-                  size="sm" 
-                  className="flex items-center gap-2"
-                  disabled={conversation.length === 0}
-                >
-                  <Brain className="h-4 w-4" />
-                  HALO Review
-                  {conversation.length > 0 && (
-                    <Badge variant="secondary" className="ml-1 text-xs">
-                      {conversation.length}
-                    </Badge>
-                  )}
-                </Button>
-              </PopoverTrigger>
-              <PopoverContent className="w-[500px] p-0" align="end">
-                <div className="p-4 border-b">
-                  <div className="flex items-center gap-2">
-                    <Zap className="h-4 w-4 text-primary" />
-                    <span className="font-semibold">HALO Review System</span>
-                    <Badge variant={haloSettings.enabled ? "default" : "secondary"} className="text-xs">
-                      {haloSettings.enabled ? "Active" : "Disabled"}
-                    </Badge>
-                  </div>
-                </div>
-                <div className="max-h-[400px] overflow-y-auto">
-                  <HALOReview
-                    conversation={conversation}
-                    settings={haloSettings}
-                    onExportConversation={handleExportConversation}
-                  />
-                </div>
-              </PopoverContent>
-            </Popover>
-            
-            {/* HALO Settings */}
-            <HALOSettings onSettingsChange={handleSettingsChange} />
-            
-            {/* View Results */}
-            <Link href="/multi-agent/setup">
-              <Button variant="outline" size="sm" className="flex items-center gap-2">
-                <Settings className="h-4 w-4" />
-                Setup
-              </Button>
-            </Link>
           </div>
         </div>
       </header>

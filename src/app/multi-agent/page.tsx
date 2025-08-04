@@ -2,7 +2,7 @@ import { getHumeAccessToken } from '@/utils/getHumeAccessToken';
 import MultiAgentPageClient from './multi-agent-client';
 import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
 import { Button } from '@/components/ui/button';
-import { AlertCircle, Settings } from 'lucide-react';
+import { AlertCircle, Settings, RefreshCw } from 'lucide-react';
 import Link from 'next/link';
 
 export default async function MultiAgentPage() {
@@ -45,12 +45,12 @@ export default async function MultiAgentPage() {
                         Agents Setup
                       </Button>
                     </Link>
-                    <Button 
-                      onClick={() => window.location.reload()}
-                      className="flex items-center gap-2"
-                    >
-                      Reload Page
-                    </Button>
+                    <Link href="/multi-agent">
+                      <Button className="flex items-center gap-2">
+                        <RefreshCw className="h-4 w-4" />
+                        Reload Page
+                      </Button>
+                    </Link>
                   </div>
                 </div>
               </CardContent>

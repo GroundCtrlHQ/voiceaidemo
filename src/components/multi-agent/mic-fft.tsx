@@ -2,7 +2,6 @@
 
 import { cn } from "@/lib/utils";
 import { motion } from "motion/react";
-import { AutoSizer } from "react-virtualized";
 
 export default function MicFFT({
   fft,
@@ -12,34 +11,31 @@ export default function MicFFT({
   className?: string;
 }) {
   return (
-    <div className={"relative size-full"}>
-      <AutoSizer>
-        {({ width, height }) => (
-          <motion.svg
-            viewBox={`0 0 ${width} ${height}`}
-            width={width}
-            height={height}
-            className={cn("absolute !inset-0 !size-full", className)}
-          >
-            {Array.from({ length: 24 }).map((_, index) => {
-              const value = (fft[index] ?? 0) / 4;
-              const h = Math.min(Math.max(height * value, 2), height);
-              const yOffset = height * 0.5 - h * 0.5;
+    <div className="relative w-full h-8">
+      <motion.svg
+        viewBox="0 0 192 32"
+        width="192"
+        height="32"
+        className={cn("absolute inset-0 w-full h-full", className)}
+      >
+        {Array.from({ length: 24 }).map((_, index) => {
+          const value = (fft[index] ?? 0) / 4;
+          const h = Math.min(Math.max(32 * value, 2), 32);
+          const yOffset = 16 - h * 0.5;
 
-              return (
-                <motion.rect
-                  key={`mic-fft-${index}`}
-                  height={h}
-                  width={2}
-                  x={2 + (index * width - 4) / 24}
-                  y={yOffset}
-                  rx={4}
-                />
-              );
-            })}
-          </motion.svg>
-        )}
-      </AutoSizer>
+          return (
+            <motion.rect
+              key={`mic-fft-${index}`}
+              height={h}
+              width={2}
+              x={2 + (index * 192 - 4) / 24}
+              y={yOffset}
+              rx={4}
+              fill="currentColor"
+            />
+          );
+        })}
+      </motion.svg>
     </div>
   );
 } 
