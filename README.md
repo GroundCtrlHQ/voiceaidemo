@@ -2,6 +2,8 @@
 
 A production-ready Next.js demo showcasing advanced voice interaction capabilities using Hume AI. This demo provides a clean, professional interface for real-time voice conversations with emotion detection and modern UI design.
 
+**🌐 [Visit GroundCtrl Website](https://groundctrl.space/book-a-meeting) - Book a meeting to discuss your AI needs**
+
 ## 🎯 What This Demo Does
 
 **VoiceAI Demo 1** is a streamlined voice chat interface that demonstrates:
@@ -166,7 +168,9 @@ This demo showcases just one example of what's possible with modern AI technolog
 - **Enterprise AI Consulting** - Strategic AI implementation
 
 ### 📞 Book a Meeting
-Ready to build your own AI solution? [Book a meeting with GroundCtrl](https://groundctrl.space/) to discuss your project requirements and get started on your custom AI development journey.
+Ready to build your own AI solution? **[Book a meeting with GroundCtrl](https://groundctrl.space/book-a-meeting)** to discuss your project requirements and get started on your custom AI development journey.
+
+**🌐 [GroundCtrl Website](https://groundctrl.space/book-a-meeting)**
 
 ## 📄 License
 
