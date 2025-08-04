@@ -1,11 +1,11 @@
 import { getHumeAccessToken } from '@/utils/getHumeAccessToken';
-import MultiAgentPageClient from './multi-agent-client';
+import MultiAgentPageClient from '../voiceaidemo/multi-agent-client';
 import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
 import { Button } from '@/components/ui/button';
 import { AlertCircle, Settings, RefreshCw } from 'lucide-react';
 import Link from 'next/link';
 
-export default async function MultiAgentPage() {
+export default async function VoiceAIDemo2Page() {
   const accessToken = await getHumeAccessToken();
 
   if (!accessToken) {
@@ -34,18 +34,19 @@ export default async function MultiAgentPage() {
                     </ol>
                     <div className="mt-2 p-3 bg-background rounded text-xs font-mono border">
                       NEXT_PUBLIC_HUME_API_KEY=your_api_key_here<br/>
-                      NEXT_PUBLIC_HUME_SECRET_KEY=your_secret_key_here
+                      NEXT_PUBLIC_HUME_SECRET_KEY=your_secret_key_here<br/>
+                      NEXT_PUBLIC_HUME_CONFIG_ID_2=your_config_id_2_here
                     </div>
                   </div>
 
                   <div className="flex gap-4 justify-center">
-                    <Link href="/multi-agent/setup">
+                    <Link href="/voiceaidemo/setup">
                       <Button variant="outline" className="flex items-center gap-2">
                         <Settings className="h-4 w-4" />
                         Agents Setup
                       </Button>
                     </Link>
-                    <Link href="/multi-agent">
+                    <Link href="/voiceaidemo2">
                       <Button className="flex items-center gap-2">
                         <RefreshCw className="h-4 w-4" />
                         Reload Page
@@ -61,5 +62,5 @@ export default async function MultiAgentPage() {
     );
   }
 
-  return <MultiAgentPageClient accessToken={accessToken} />;
+  return <MultiAgentPageClient accessToken={accessToken} configId="NEXT_PUBLIC_HUME_CONFIG_ID_2" />;
 } 

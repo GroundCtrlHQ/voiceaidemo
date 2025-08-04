@@ -20,12 +20,12 @@ export default function HomePage() {
 
           {/* Demo Cards */}
           <div className="grid md:grid-cols-2 gap-6">
-            {/* Demo 1 */}
+            {/* VoiceAIDemo */}
             <Card className="card-modern shadow-lg hover-lift transition-modern">
               <CardHeader>
                 <CardTitle className="flex items-center gap-2">
                   <Mic className="h-5 w-5" />
-                  Demo 1 - Multi-Agent Voice
+                  VoiceAIDemo
                 </CardTitle>
               </CardHeader>
               <CardContent className="space-y-4">
@@ -46,21 +46,21 @@ export default function HomePage() {
                     <span>Emotion detection</span>
                   </div>
                 </div>
-                <Link href="/multi-agent">
+                <Link href="/voiceaidemo">
                   <Button className="w-full flex items-center gap-2">
-                    Launch Demo 1
+                    Launch VoiceAIDemo
                     <ArrowRight className="h-4 w-4" />
                   </Button>
                 </Link>
               </CardContent>
             </Card>
 
-            {/* Demo 2 */}
+            {/* VoiceAIDemo2 */}
             <Card className="card-modern shadow-lg hover-lift transition-modern">
               <CardHeader>
                 <CardTitle className="flex items-center gap-2">
                   <Mic className="h-5 w-5" />
-                  Demo 2 - Voice Interface
+                  VoiceAIDemo2
                 </CardTitle>
               </CardHeader>
               <CardContent className="space-y-4">
@@ -81,9 +81,9 @@ export default function HomePage() {
                     <span>Alternative configuration</span>
                   </div>
                 </div>
-                <Link href="/demo-2">
+                <Link href="/voiceaidemo2">
                   <Button className="w-full flex items-center gap-2">
-                    Launch Demo 2
+                    Launch VoiceAIDemo2
                     <ArrowRight className="h-4 w-4" />
                   </Button>
                 </Link>
