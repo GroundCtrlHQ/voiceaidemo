@@ -5,12 +5,11 @@ import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Button } from '@/components/ui/button';
 import { Badge } from '@/components/ui/badge';
 import { ArrowLeft, CheckCircle } from 'lucide-react';
-import HumeVoiceChat from '@/components/multi-agent/hume-voice-chat';
+import HumeVoiceChat from '@/components/multi-agent/hume-voice-chat-2';
 import Link from 'next/link';
 
 interface MultiAgentPageClientProps {
   accessToken: string;
-  configId?: string;
 }
 
 interface ConversationMessage {
@@ -20,7 +19,7 @@ interface ConversationMessage {
   emotions?: Record<string, number>;
 }
 
-export default function MultiAgentPageClient({ accessToken, configId = "NEXT_PUBLIC_HUME_CONFIG_ID" }: MultiAgentPageClientProps) {
+export default function MultiAgentPageClient({ accessToken }: MultiAgentPageClientProps) {
   const [activeAgent, setActiveAgent] = useState('orchestrator');
   const [capturedExpertise, setCapturedExpertise] = useState<any[]>([]);
   const [conversation, setConversation] = useState<ConversationMessage[]>([]);
@@ -97,7 +96,6 @@ export default function MultiAgentPageClient({ accessToken, configId = "NEXT_PUB
       <main className="h-[calc(100vh-4rem)]">
         <HumeVoiceChat
           accessToken={accessToken}
-          configId={configId}
           activeAgent={activeAgent}
           onMessageReceived={handleMessageReceived}
           onAgentResponse={handleAgentResponse}

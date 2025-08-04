@@ -10,7 +10,6 @@ import Link from 'next/link';
 
 interface MultiAgentPageClientProps {
   accessToken: string;
-  configId?: string;
 }
 
 interface ConversationMessage {
@@ -20,7 +19,7 @@ interface ConversationMessage {
   emotions?: Record<string, number>;
 }
 
-export default function MultiAgentPageClient({ accessToken, configId = "NEXT_PUBLIC_HUME_CONFIG_ID" }: MultiAgentPageClientProps) {
+export default function MultiAgentPageClient({ accessToken }: MultiAgentPageClientProps) {
   const [activeAgent, setActiveAgent] = useState('orchestrator');
   const [capturedExpertise, setCapturedExpertise] = useState<any[]>([]);
   const [conversation, setConversation] = useState<ConversationMessage[]>([]);
@@ -97,7 +96,6 @@ export default function MultiAgentPageClient({ accessToken, configId = "NEXT_PUB
       <main className="h-[calc(100vh-4rem)]">
         <HumeVoiceChat
           accessToken={accessToken}
-          configId={configId}
           activeAgent={activeAgent}
           onMessageReceived={handleMessageReceived}
           onAgentResponse={handleAgentResponse}

@@ -32,7 +32,7 @@ export default function HumeVoiceChat({
   const ref = useRef<ComponentRef<typeof Messages> | null>(null);
 
   // Use the Hume AI config ID from environment variable
-  const configId = process.env.NEXT_PUBLIC_HUME_CONFIG_ID || "5203e88d-cf3e-44ce-9ac7-aff76715e23d";
+  const configId = process.env.NEXT_PUBLIC_HUME_CONFIG_ID_2 || "5203e88d-cf3e-44ce-9ac7-aff76715e23d";
 
   console.log('HumeVoiceChat rendered with accessToken:', !!accessToken, 'configId:', configId);
 
