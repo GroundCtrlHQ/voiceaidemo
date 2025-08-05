@@ -65,35 +65,8 @@ export default function MultiAgentPageClient({ accessToken }: MultiAgentPageClie
 
   return (
     <div className="min-h-screen bg-background">
-      {/* Header with Voice Controls */}
-      <header className="sticky top-0 z-50 w-full border-b border-border bg-background/80 backdrop-blur-xl supports-[backdrop-filter]:bg-background/60">
-        <div className="container-padding flex h-16 items-center justify-between">
-          <div className="flex items-center gap-4">
-            <Link href="/" className="flex items-center gap-2 hover:opacity-80 transition-opacity">
-              <ArrowLeft className="h-4 w-4" />
-              <span className="font-semibold">Back to Home</span>
-            </Link>
-          </div>
-          
-          <div className="flex items-center gap-3">
-            {/* Voice Status */}
-            <Badge variant="secondary" className="flex items-center gap-1">
-              <CheckCircle className="h-3 w-3" />
-              Voice Ready
-            </Badge>
-            
-            {/* Conversation Stats */}
-            {conversation.length > 0 && (
-              <Badge variant="outline" className="text-xs">
-                {conversation.length} messages
-              </Badge>
-            )}
-          </div>
-        </div>
-      </header>
-
       {/* Full Screen Hume AI Interface */}
-      <main className="h-[calc(100vh-4rem)]">
+      <main className="h-screen">
         <HumeVoiceChat
           accessToken={accessToken}
           activeAgent={activeAgent}
